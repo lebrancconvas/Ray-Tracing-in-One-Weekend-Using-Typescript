@@ -39,8 +39,8 @@ let pixel00Loc = ((pixelDeltaU.add(pixelDeltaV)).mulc(0.5)).add(viewportUpperLef
 // Render.
 let ppmCode = `${FORMAT}\n${IMAGE_WIDTH} ${IMAGE_HEIGHT}\n${COLOR}\n`;
 
-for(let h = 0; h < 256; h++) {
-  for(let w = 0; w < 256; w++) {
+for(let h = 0; h < IMAGE_HEIGHT; h++) {
+  for(let w = 0; w < IMAGE_WIDTH; w++) {
     let pixelCenter = (pixel00Loc.add(pixelDeltaU.mulc(w))).add(pixelDeltaV.mulc(h));
     let rayDirection = pixelCenter.sub(CAMERA_CENTER);
     let ray = new Ray(pixelCenter, rayDirection);

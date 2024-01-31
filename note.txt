@@ -1,0 +1,31 @@
+Ray Tracing in one weekend
+1. Overview
+2. Output an Image
+  - Learning about PPM File Format
+  Pattern of PPM:
+  ```ppm
+  <format>
+  <image_width> <image_height>
+  <max_color_value>
+  <red_value_01> <green_value_01> <blue_value_01>
+  <red_value_02> <green_value_02> <blue_value_02>
+  .
+  .
+  .
+  <red_value_N> <green_value_N> <blue_value_N>
+  ```
+  - Create Image File
+  => Write the ppm file
+3. The vec3 class
+  - 3D Vector
+  - Vector Method
+    - Add
+    - Subtract
+    - Multiply Vector
+    - Multiply Scale
+    - Divide Vector
+    - Divide Scale
+    - Dot Product
+    - Cross Product
+    - Length
+    - Unit Vector 

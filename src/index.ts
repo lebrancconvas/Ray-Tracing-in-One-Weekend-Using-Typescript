@@ -2,9 +2,21 @@ import fs from 'fs';
 import path from 'path';
 import { draw } from './utils';
 import { config, imageConfig, cameraConfig } from './config';
-import { Vector, Color, Ray } from './lib';
+import { Vector, Point, Color, Ray } from './lib';
+
+function hitSphere(center: Point, radius: number, ray: Ray): boolean {
+  let oc: Vector = ray.origin.sub(center);
+  let a = ray.direction.dot(ray.direction);
+  let b = 2.0 * (oc.dot(ray.direction));
+  let c = (oc.dot(oc)) - (radius * radius);
+  let discriminant = (b*b) - (4*a*c);
+  return discriminant >= 0;
+}
 
 function rayColor(r: Ray) {
+  if(hitSphere(new Point(0, 0, -1), 0.5, r)) {
+    return new Color(1, 0, 0);
+  }
   let unitDirection = r.direction.unit();
   let a = 0.5 * (unitDirection.y + 1.0);
   let color01 = new Color(1.0, 1.0, 1.0).mulc(1.0 - a);
